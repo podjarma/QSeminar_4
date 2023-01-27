@@ -11,20 +11,20 @@ public class DeveloperService {
         this.list = new ArrayList<>();
     }
 
-    public void createDeveloper(int id, String firstName, String secondName) throws IllegalAccessException {
+    public void createDeveloper(int id, String firstName, String secondName) throws IllegalStateException {
         if((firstName == null || firstName.isEmpty()) || (secondName == null || secondName.isEmpty())) {
-            throw new IllegalAccessException("Входные данные не валидны");
+            throw new IllegalStateException("Входные данные не валидны");
         }
         list.add(new Developer(id, firstName, secondName));
     }
 
-    public Developer getDeveloper(String firstName, String secondName) throws IllegalAccessException {
+    public Developer getDeveloper(String firstName, String secondName) throws IllegalStateException {
         for (Developer t: list)  {
             if(firstName.equalsIgnoreCase(t.firstName) && secondName.equalsIgnoreCase(t.secondName)) {
                 return t;
             }
         }
-        throw new IllegalAccessException("Разработчики не найдены");
+        throw new IllegalStateException("Разработчики не найдены");
     }
 
     public ArrayList<Developer> getFreeDevelopers() {
