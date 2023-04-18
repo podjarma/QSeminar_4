@@ -20,7 +20,7 @@ public class DeveloperService {
 
     public Developer getDeveloper(String firstName, String secondName) throws IllegalStateException {
         for (Developer t: list)  {
-            if(firstName.equalsIgnoreCase(t.firstName) && secondName.equalsIgnoreCase(t.secondName)) {
+            if(firstName.equalsIgnoreCase(t.getFirstName()) && secondName.equalsIgnoreCase(t.getSecondName())) {
                 return t;
             }
         }
@@ -30,7 +30,7 @@ public class DeveloperService {
     public ArrayList<Developer> getFreeDevelopers() {
         ArrayList<Developer> freeTester = new ArrayList<>();
         for (Developer n: list) {
-            if(n.isFree) {
+            if(n.isFree()) {
                 freeTester.add(n);
             }
         }
