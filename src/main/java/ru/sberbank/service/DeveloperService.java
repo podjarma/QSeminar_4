@@ -4,11 +4,11 @@ import ru.sberbank.data.Developer;
 
 import java.util.ArrayList;
 
-public class DeveloperService {
-    public ArrayList<Developer> list;
+public class DeveloperService extends AbstractStorage<Developer> {
+
 
     public DeveloperService() {
-        this.list = new ArrayList<>();
+        super();
     }
 
     public void createDeveloper(int id, String firstName, String secondName) throws IllegalStateException {
